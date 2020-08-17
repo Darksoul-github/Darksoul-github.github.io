@@ -1,0 +1,32 @@
+{%extends 'Main/dummy.html'%}
+{%block head%}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>{{question_id}} . {{output}}</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {%for x in choice%}
+                <input type="radio" value={{x}} name="choices"  />
+                <label>{{x}}</label><br>
+                {%endfor%}
+        {%if question_id in list%}
+        <a href="{{next}}">
+            <button type="button">Next</button>
+        </a>
+        <button type="submit">save</button>
+        {%else%}
+        <a href="{{rev_que}}">
+            <button type="button">previous</button>
+        </a>
+        <a href="{{next}}">
+            <button type="button">Next</button>
+        </a>
+        <button type="submit" onsubmit="MyFunc()">save</button>
+        {%endif%}
+        <script>
+            function(MyFunc())
+        </script>
+        </form>
+            </div>
+    </div>
+{%endblock%}

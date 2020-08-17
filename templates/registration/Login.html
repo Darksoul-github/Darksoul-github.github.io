@@ -1,0 +1,10 @@
+{%extends 'Main/dummy.html'%}
+{%block head%}
+<form method="POST">
+    <div class="container">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit">Login</button>
+    </div>
+</form>
+{%endblock%}
